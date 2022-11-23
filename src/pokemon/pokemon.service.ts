@@ -83,4 +83,12 @@ export class PokemonService {
 
     return;
   }
+
+  async deleteAll() {
+    await this.pokemonModel.deleteMany({});
+  }
+
+  async createMany(pokemons: CreatePokemonDto[]) {
+    await this.pokemonModel.insertMany(pokemons);
+  }
 }
