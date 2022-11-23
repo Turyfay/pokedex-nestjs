@@ -5,6 +5,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { PokemonModule } from './pokemon/pokemon.module';
 import { CommonModule } from './common/common.module';
+import { SeedModule } from './seed/seed.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -16,6 +17,7 @@ import { CommonModule } from './common/common.module';
     MongooseModule.forRoot(process.env.DB_URL, {}),
     PokemonModule,
     CommonModule,
+    SeedModule,
   ],
   controllers: [],
   providers: [],
