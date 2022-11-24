@@ -4,6 +4,7 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
@@ -15,6 +16,7 @@ import { Pokemon } from './entities/pokemon.entity';
 export class PokemonService {
   constructor(
     @InjectModel(Pokemon.name) private readonly pokemonModel: Model<Pokemon>,
+    private readonly configService: ConfigService,
   ) {}
   async create(createPokemonDto: CreatePokemonDto) {
     try {
